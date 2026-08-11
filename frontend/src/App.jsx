@@ -115,10 +115,7 @@ if (weather) {
       formData.append("weather", JSON.stringify(weather));
     }
 
-    const response = await fetch("http://localhost:5000/api/analyze", {
-      method: "POST",
-      body: formData,
-    });
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/analyze`);
 
     if (!response.ok) {
       throw new Error(`Server returned ${response.status}`);
